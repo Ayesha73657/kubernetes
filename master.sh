@@ -7,7 +7,7 @@ set -e
 # ==================================================
 
 # CHANGE THIS
-MASTER_IP="10.0.1.10"
+MASTER_IP="10.0.0.119"
 
 # Pod Network CIDR
 POD_CIDR="192.168.0.0/16"
