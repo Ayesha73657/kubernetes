@@ -20,7 +20,7 @@ spec:
     spec:  
       containers:
       - name: ai-frontend-app
-        image: aishask/ai-frontend:latest
+        image: nginx
         ports:
         - containerPort: 80
 
