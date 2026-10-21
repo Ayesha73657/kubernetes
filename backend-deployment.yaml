@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: aifashion-ns
+  labels:
+    project: aifashion-app
+    app: backend
+spec:
+  replicas: 1 
+  strategy: 
+    type: RollingUpdate
+    RollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchlabels:
+      project: aifashion-app
+      tier: backend-tier
+  template:
+    metadata:
+      labels:
+        project: aifashion-app
+        tier: backend-tier
+    spec:
+      containers:
+      - name: ai-backend-app
+        image: aishask/ai-backend:latest
+        ports:
+        - containerPort: 8000   
+        envfrom:
+        - configMapRef:
+            name: aifashion-configmap
+            
